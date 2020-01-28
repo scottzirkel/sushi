@@ -80,6 +80,10 @@ trait Sushi
                     continue;
                 }
 
+                if (is_array($value)) {
+                    $value = json_encode($value);
+                }
+                
                 $type = is_numeric($value) ? 'integer' : 'string';
 
                 $table->{$type}($column);
